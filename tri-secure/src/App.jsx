@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-   <h2>gurjeet</h2>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos fugit pariatur maxime officia earum voluptatum quisquam explicabo, esse aperiam harum. Minima optio assumenda nobis fuga rem maiores dolorem ipsum laboriosam, quam mollitia! Aliquam laudantium laboriosam ratione et eius totam! Ipsum!</p>
+     vanshita
+     gurjeet
     </>
   )
 }
