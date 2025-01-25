@@ -1,49 +1,100 @@
-.service-heading{
-    text-align: center;
+.service-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
+
 .services-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.services-cards-wrapper {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Slider Buttons */
+.service-less-btn,
+.service-greater-btn {
+  border: 2px solid #ccc; /* Light grey border */
+  background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc; /* Grey color for default state */
+  border-radius: 50%; /* Make the buttons circular */
+  padding: 4px 10px;
+  transition: transform 0.3s ease, background-color 0.3s;
+  margin: 5px 10px;
+}
+
+.service-less-btn:disabled,
+.service-greater-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.service-less-btn:hover,
+.service-greater-btn:hover {
+  color: #ccc; /* Blue on hover */
+  transform: scale(1.1); /* Enlarge the button by 3px */
+}
+
+/* Slider Lines */
+.slider-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px; /* Space between buttons and slider lines */
+}
+
+.slider-lines {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+
+.line {
+  width: 40px;
+  height: 4px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.line.active {
+  background-color: black;
+}
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
   }
-  
-  .services-cards-wrapper {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.3s ease;
-  }
-  
+
   .service-less-btn,
   .service-greater-btn {
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 10px 0;
+    font-size: 20px; /* Optional: Adjusting button size on mobile */
   }
-  
-  .service-less-btn {
-    left: 10px;
+
+  /* Slider Navigation Container */
+  .slider-navigation {
+    gap: 20px;
   }
-  
-  .service-greater-btn {
-    right: 10px;
+
+  /* Slider Lines */
+  .slider-lines {
+    gap: 10px;
   }
-  
-  .service-less-btn:hover,
-  .service-greater-btn:hover {
-    color: #007bff;
+
+  .line {
+    width: 30px; /* Adjust width of lines for mobile */
   }
-  
-  .service-less-btn:disabled,
-  .service-greater-btn:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-  }
-  
+}
