@@ -16,7 +16,7 @@ const Contact = () => {
     };
 
     // Send the email using EmailJS
-    emailjs.send('service_bzr7vam', 'template_e3kcnx6', templateParams,'B2H2onW6k8v76C0kS')
+    emailjs.send('service_ID', 'template_ID', templateParams,'public_key')
       .then((response) => {
         console.log('Success:', response);
         setStatus('Your message has been sent successfully!');
