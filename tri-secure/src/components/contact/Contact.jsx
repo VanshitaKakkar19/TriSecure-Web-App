@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './Contact.css';
+import ContactImage from "../../assets/Images/ContactImage.jpg"
 
 const Contact = () => {
   const [email, setEmail] = useState('');
@@ -34,17 +35,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact__section">
+ <div className="container contact-container">
       <div className="contact-image-section">
         <img
-          src=""
+          src={ContactImage}
           alt="Contact us illustration"
           className="contact-image"
         />
       </div>
       <div className="contact-form-section">
-        <h2>Get Newsletter</h2>
-        <p>Get every weekly updates feeds</p>
+        <h2>Schedule a Conversation</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -71,6 +72,8 @@ const Contact = () => {
         {status && <p className="status-message">{status}</p>}
       </div>
     </div>
+    </div>
+   
   );
 };
 
