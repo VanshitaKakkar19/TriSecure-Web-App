@@ -37,7 +37,7 @@ const Contact = () => {
     <div className="contact-container">
       <div className="contact-image-section">
         <img
-          src="https://via.placeholder.com/600x400"
+          src=""
           alt="Contact us illustration"
           className="contact-image"
         />
