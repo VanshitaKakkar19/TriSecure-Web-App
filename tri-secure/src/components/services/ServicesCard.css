@@ -25,7 +25,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.service-card-image{
+  height: 200px;
+}
 .service-card-body {
   padding: 20px;
   display: flex;
