@@ -18,7 +18,7 @@ const Home = () => {
           <p >Future-Proof Your Business with <b>TriSecure Solutions.</b></p>
         </div>
       </div>
-      {/* <Services /> */}
+      <Services />
       <Contact />
       <Footer />
     </>
