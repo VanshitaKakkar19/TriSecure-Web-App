@@ -9,7 +9,7 @@ export const ServicesCard = ({ service, isFlipped, onFlip }) => {
       {/* Front of the card */}
       <CCard className="service-card" key="front">
         <div className="service-card-image-wrapper">
-          <CCardImage src={service.image} />
+          <CCardImage src={service.image} className='service-card-image'/>
         </div>
         <CCardBody className="service-card-body">
           <CCardTitle className="service-card-title">{service.name}</CCardTitle>
