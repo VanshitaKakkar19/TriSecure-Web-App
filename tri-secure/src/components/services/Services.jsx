@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ServicesCard } from './ServicesCard'; // Import your card component
 import { servicesList } from './ServicesData'; // Import your data
 import './Services.css';
@@ -7,6 +7,7 @@ const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [flippedStates, setFlippedStates] = useState({}); // Object to track unique flipped states
+  const servicesContainerRef = useRef(null); // Reference to the container
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,27 +25,65 @@ const Services = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Detect click outside of the cards and reset flip states
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (servicesContainerRef.current && !servicesContainerRef.current.contains(event.target)) {
+        setFlippedStates({}); // Reset flip states when clicking outside
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  // Reset flip states on page scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setFlippedStates({}); // Reset flip states when scrolling
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const totalSlides = Math.ceil(servicesList.length / itemsPerPage);
 
   const handlePrev = () => {
+    setFlippedStates({}); // Reset flip states on previous button click
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   const handleNext = () => {
+    setFlippedStates({}); // Reset flip states on next button click
     setCurrentIndex((prevIndex) =>
       Math.min(prevIndex + 1, totalSlides - 1)
     );
   };
 
   const handleDotClick = (index) => {
+    setFlippedStates({}); // Reset flip states on dot click
     setCurrentIndex(index);
   };
 
   const handleFlip = (index) => {
-    setFlippedStates((prevStates) => ({
-      ...prevStates,
-      [index]: !prevStates[index], // Toggle flip state for the specific card
-    }));
+    setFlippedStates((prevStates) => {
+      const newState = {};
+
+      // Reset flip state for all cards
+      Object.keys(prevStates).forEach((key) => {
+        newState[key] = false;
+      });
+
+      // Toggle the flip state for the clicked card
+      newState[index] = !prevStates[index];
+
+      return newState;
+    });
   };
 
   const getVisibleServices = () => {
@@ -69,11 +108,10 @@ const Services = () => {
   return (
     <div className="services-section">
       <h1 className="service-heading">Services</h1>
-      <div className="services-container">
+      <div className="services-container" ref={servicesContainerRef}>
         <div className="services-cards-wrapper">
           {getVisibleServices().map((service, index) => {
-            const actualIndex =
-              servicesList.indexOf(service); // Get the actual index of the service in the original list
+            const actualIndex = servicesList.indexOf(service); // Get the actual index of the service in the original list
             return (
               <ServicesCard
                 key={actualIndex}
@@ -85,7 +123,7 @@ const Services = () => {
           })}
         </div>
 
-        {/* Navigation buttons and slider lines */}
+        {/* Navigation buttons and slider indicators */}
         <div className="slider-navigation">
           <button
             className="service-less-btn"
