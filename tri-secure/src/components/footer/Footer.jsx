@@ -1,15 +1,14 @@
-import './footer.css';
+import './Footer.css';
 import Logo from '../../assets/Images/Logo.png';
 const Footer = () => {
   return (
     <footer className="border-gray-300 py-8">
       <div className="container mx-auto px-4">
         <div className="footer grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className='col-4'>
+          <div className='col-4 footer-image'>
                <img src={Logo} alt="Hero Section" className="Company Logo" />
           </div>
           <div className='col-4'>
-            <h3 className="text-lg font-semibold mb-4">Section</h3>
             <ul className="space-y-2">
               <li className="hover:underline">Home</li>
               <li className="hover:underline">Features</li>
@@ -19,7 +18,6 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col-4'>
-            <h3 className="text-lg font-semibold mb-4">Section</h3>
             <ul className="space-y-2">
               <li className="hover:underline">Home</li>
               <li className="hover:underline">Features</li>
