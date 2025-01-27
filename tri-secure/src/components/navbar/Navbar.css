@@ -1,0 +1,54 @@
+.navbar {
+    background-color: #1d1e1f;
+}
+
+.navbar .nav-section {
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-section__navbar button {
+    background-color: #E68A00;
+    color: #ffffff;
+    border: none;
+    padding: 8px 34px;
+    border-radius: 41px;
+    font-family: "Inter", serif;
+}
+
+.nav-section__navbar button:hover {
+    background-color: #d68204;
+}
+
+.btn:first-child:active{
+    background-color: #E68A00;
+}
+
+.nav-section__logo a {
+    font-family: "Kameron", serif;
+    color: #E68A00;
+}
+
+
+.nav-section__navbar ul li a {
+    font-family: "Inter", serif;
+    margin-right: 30px;
+    color: #ffffff;
+}
+
+.nav-section__navbar ul li a:hover  {
+    color: #d68204;
+}
+.nav-section__navbar ul li a:focus{
+    color: #ffffff;
+}
+
+.navbar-nav .nav-link.active {
+    color: #E68A00;
+}
